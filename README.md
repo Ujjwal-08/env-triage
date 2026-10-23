@@ -1,11 +1,11 @@
-# dotenv-doctor
+# env-triage
 
 A read-only checkup for your `.env` files: missing keys, empty values, committed secrets and variables the code reads but nobody defined.
 
 ```
-$ npx dotenv-doctor
+$ npx env-triage
 
-dotenv-doctor  .env vs .env.example  (3 source files scanned)
+env-triage  .env vs .env.example  (3 source files scanned)
 
 errors
   ✗ SESSION_SECRET         is still a placeholder value (.env:6)
@@ -37,38 +37,38 @@ info
   ℹ legacyFlag      defined in .env:7 but never referenced in the scanned code; it may be used elsewhere
 
 5 errors, 12 warnings, 6 info
-fix: copy the missing keys with `npx dotenv-doctor --print-missing >> .env`
+fix: copy the missing keys with `npx env-triage --print-missing >> .env`
 ```
 
 When the project is healthy:
 
 ```
-$ npx dotenv-doctor
+$ npx env-triage
 
-dotenv-doctor  .env vs .env.example  (1 source file scanned)
+env-triage  .env vs .env.example  (1 source file scanned)
 
   ✓ no problems found
 
 0 errors, 0 warnings, 0 info
 ```
 
-dotenv-doctor never edits a file, never makes a network call, and never prints a secret
+env-triage never edits a file, never makes a network call, and never prints a secret
 value — only the key name and the name of the pattern that matched.
 
 ## Install
 
 ```sh
-npx dotenv-doctor
+npx env-triage
 ```
 
 ```sh
-npm i -D dotenv-doctor
+npm i -D env-triage
 ```
 
 ## Usage
 
 ```sh
-dotenv-doctor [options]
+env-triage [options]
 ```
 
 | Flag | Default | What it does |
@@ -92,13 +92,13 @@ Source scanning understands `process.env.X`, `process.env["X"]`, `import.meta.en
 Add it to CI:
 
 ```yaml
-- run: npx dotenv-doctor --ci
+- run: npx env-triage --ci
 ```
 
 Top the gaps up without opening an editor:
 
 ```sh
-npx dotenv-doctor --print-missing >> .env
+npx env-triage --print-missing >> .env
 ```
 
 ### `--json`
@@ -142,7 +142,7 @@ npx dotenv-doctor --print-missing >> .env
 ## API
 
 ```js
-import { parseEnv, scanSource, diagnose, formatReport, runDoctor } from "dotenv-doctor";
+import { parseEnv, scanSource, diagnose, formatReport, runDoctor } from "env-triage";
 ```
 
 ### `parseEnv(text)`
@@ -190,7 +190,7 @@ The only function that touches the filesystem. Options:
 `{ cwd, env, example, scanDirs, scanned, git, missingKeys }`.
 
 ```js
-import { runDoctor, formatReport } from "dotenv-doctor";
+import { runDoctor, formatReport } from "env-triage";
 
 const result = await runDoctor({ cwd: process.cwd() });
 console.log(formatReport(result));
@@ -207,7 +207,7 @@ and the deploy is where you find out. Meanwhile a trailing space, a `\n` that ne
 became a newline, or a key that is still `changeme` all fail in ways that look like
 something else entirely.
 
-dotenv-doctor reads the two files, reads the code that uses them, and tells you which
+env-triage reads the two files, reads the code that uses them, and tells you which
 line to look at. Zero dependencies, no network, no writes.
 
 ## Support

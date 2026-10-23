@@ -8,13 +8,13 @@ import { fileURLToPath } from "node:url";
 
 import { runDoctor } from "../src/run.js";
 
-const BIN = fileURLToPath(new URL("../bin/dotenv-doctor.js", import.meta.url));
+const BIN = fileURLToPath(new URL("../bin/env-triage.js", import.meta.url));
 const PKG = JSON.parse(
     await import("node:fs").then((fs) => fs.readFileSync(fileURLToPath(new URL("../package.json", import.meta.url)), "utf8")),
 );
 
 async function makeProject(files) {
-    const dir = await mkdtemp(path.join(tmpdir(), "dotenv-doctor-"));
+    const dir = await mkdtemp(path.join(tmpdir(), "env-triage-"));
     for (const [name, content] of Object.entries(files)) {
         const target = path.join(dir, name);
         await mkdir(path.dirname(target), { recursive: true });

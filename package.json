@@ -1,5 +1,5 @@
 {
-  "name": "dotenv-doctor",
+  "name": "env-triage",
   "version": "1.0.0",
   "description": "Read-only checkup for your .env files: missing keys, empty values, committed secrets and variables the code uses but nobody defined",
   "type": "module",
@@ -12,7 +12,7 @@
     }
   },
   "bin": {
-    "dotenv-doctor": "bin/dotenv-doctor.js"
+    "env-triage": "bin/env-triage.js"
   },
   "files": [
     "index.js",
@@ -43,12 +43,12 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Ujjwal-08/dotenv-doctor.git"
+    "url": "git+https://github.com/Ujjwal-08/env-triage.git"
   },
   "bugs": {
-    "url": "https://github.com/Ujjwal-08/dotenv-doctor/issues"
+    "url": "https://github.com/Ujjwal-08/env-triage/issues"
   },
-  "homepage": "https://github.com/Ujjwal-08/dotenv-doctor#readme",
+  "homepage": "https://github.com/Ujjwal-08/env-triage#readme",
   "engines": {
     "node": ">=18"
   },

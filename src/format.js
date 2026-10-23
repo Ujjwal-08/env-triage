@@ -25,7 +25,7 @@ function summaryLine(summary) {
 function hintFor(findings) {
     const ids = new Set(findings.map((item) => item.id));
     if (ids.has("missing")) {
-        return "fix: copy the missing keys with `npx dotenv-doctor --print-missing >> .env`";
+        return "fix: copy the missing keys with `npx env-triage --print-missing >> .env`";
     }
     if (ids.has("gitignore")) {
         return "fix: add `.env` to .gitignore before the next commit";
