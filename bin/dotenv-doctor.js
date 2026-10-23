@@ -7,13 +7,13 @@ import { supportsColor } from "../src/colors.js";
 
 const pkg = JSON.parse(readFileSync(new URL("../package.json", import.meta.url), "utf8"));
 
-const HELP = `env-doctor ${pkg.version}
+const HELP = `dotenv-doctor ${pkg.version}
 
   Check a project's .env files for the mistakes that break deploys.
   Read-only: it never edits a file and never prints a secret value.
 
 Usage
-  npx env-doctor [options]
+  npx dotenv-doctor [options]
 
 Options
   -e, --env <path>       env file to check            (default: .env)
@@ -128,7 +128,7 @@ async function main() {
         return 0;
     }
     if (errors.length > 0) {
-        process.stderr.write(`${errors.join("\n")}\n\nRun \`env-doctor --help\`.\n`);
+        process.stderr.write(`${errors.join("\n")}\n\nRun \`dotenv-doctor --help\`.\n`);
         return 2;
     }
 
@@ -165,7 +165,7 @@ async function main() {
     const envLabel = result.env.exists ? result.env.path : `${result.env.path} (not found)`;
     const exampleLabel = result.example.exists ? result.example.path : `${result.example.path} (not found)`;
 
-    process.stdout.write(`\nenv-doctor  ${envLabel} vs ${exampleLabel}  (${result.scanned} source file${result.scanned === 1 ? "" : "s"} scanned)\n\n`);
+    process.stdout.write(`\ndotenv-doctor  ${envLabel} vs ${exampleLabel}  (${result.scanned} source file${result.scanned === 1 ? "" : "s"} scanned)\n\n`);
     process.stdout.write(`${formatReport(result, { color })}\n\n`);
 
     return exitCodeFor(result.summary, options.ci);
@@ -176,7 +176,7 @@ main().then(
         process.exitCode = code;
     },
     (error) => {
-        process.stderr.write(`env-doctor: ${error?.message ?? error}\n`);
+        process.stderr.write(`dotenv-doctor: ${error?.message ?? error}\n`);
         process.exitCode = 2;
     },
 );

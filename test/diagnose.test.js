@@ -222,7 +222,7 @@ test("formatReport shows the spec line shape, a summary and a fix hint", () => {
     assert.ok(report.includes("  ✗ DATABASE_URL  missing from .env (declared in .env.example:2)"));
     assert.ok(report.includes("errors"));
     assert.match(report, /1 error, 0 warnings, 0 info/);
-    assert.match(report, /npx env-doctor --print-missing >> \.env/);
+    assert.match(report, /npx dotenv-doctor --print-missing >> \.env/);
 });
 
 test("formatReport pluralises and reports a clean bill of health", () => {

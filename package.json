@@ -1,5 +1,5 @@
 {
-  "name": "env-doctor",
+  "name": "dotenv-doctor",
   "version": "1.0.0",
   "description": "Read-only checkup for your .env files: missing keys, empty values, committed secrets and variables the code uses but nobody defined",
   "type": "module",
@@ -12,7 +12,7 @@
     }
   },
   "bin": {
-    "env-doctor": "./bin/env-doctor.js"
+    "dotenv-doctor": "bin/dotenv-doctor.js"
   },
   "files": [
     "index.js",
@@ -43,12 +43,12 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Ujjwal-08/env-doctor.git"
+    "url": "git+https://github.com/Ujjwal-08/dotenv-doctor.git"
   },
   "bugs": {
-    "url": "https://github.com/Ujjwal-08/env-doctor/issues"
+    "url": "https://github.com/Ujjwal-08/dotenv-doctor/issues"
   },
-  "homepage": "https://github.com/Ujjwal-08/env-doctor#readme",
+  "homepage": "https://github.com/Ujjwal-08/dotenv-doctor#readme",
   "engines": {
     "node": ">=18"
   },
