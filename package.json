@@ -1,0 +1,73 @@
+{
+  "name": "env-doctor",
+  "version": "1.0.0",
+  "description": "Read-only checkup for your .env files: missing keys, empty values, committed secrets and variables the code uses but nobody defined",
+  "type": "module",
+  "main": "index.js",
+  "types": "index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./index.d.ts",
+      "default": "./index.js"
+    }
+  },
+  "bin": {
+    "env-doctor": "./bin/env-doctor.js"
+  },
+  "files": [
+    "index.js",
+    "index.d.ts",
+    "src",
+    "bin",
+    "README.md",
+    "LICENSE"
+  ],
+  "scripts": {
+    "test": "node --test"
+  },
+  "keywords": [
+    "dotenv",
+    "env",
+    "environment-variables",
+    "env-check",
+    "env-validation",
+    "config-validation",
+    "secret-scanning",
+    "gitignore",
+    "lint",
+    "ci",
+    "devops",
+    "cli"
+  ],
+  "author": "Ujjwal Dadhich",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Ujjwal-08/env-doctor.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Ujjwal-08/env-doctor/issues"
+  },
+  "homepage": "https://github.com/Ujjwal-08/env-doctor#readme",
+  "engines": {
+    "node": ">=18"
+  },
+  "sideEffects": false,
+  "devDependencies": {
+    "@semantic-release/commit-analyzer": "^13.0.1",
+    "@semantic-release/github": "^12.0.6",
+    "@semantic-release/npm": "^13.1.5",
+    "@semantic-release/release-notes-generator": "^14.1.0",
+    "semantic-release": "^25.0.3"
+  },
+  "funding": [
+    {
+      "type": "patreon",
+      "url": "https://www.patreon.com/cw/BABU_ISHU"
+    },
+    {
+      "type": "individual",
+      "url": "https://www.paypal.com/ncp/payment/SECBQ62TRZZ6Y"
+    }
+  ]
+}
